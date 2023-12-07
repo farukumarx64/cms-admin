@@ -1,0 +1,75 @@
+{
+  "tickets": [
+    {
+      "id": "2",
+      "subject_header": "header1",
+      "email": "caleepha@gmail.com",
+      "address": "address",
+      "description": "random ticket",
+      "published_at": "2023-11-13",
+      "category": "Calibration Centers",
+      "status": "pending"
+    },
+    {
+      "id": "3",
+      "subject_header": "header1",
+      "email": "caleepha@gmail.com",
+      "address": "address",
+      "description": "random ticket",
+      "published_at": "2023-11-13",
+      "category": "LNG Facility",
+      "status": "pending"
+    },
+    {
+      "id": "7",
+      "subject_header": "header7",
+      "email": "caleepha@gmail.com",
+      "address": "address",
+      "header": "ticket7",
+      "description": "random ticket",
+      "published_at": "2023-11-13",
+      "category": "Adon SKID",
+      "status": "pending"
+    },
+    {
+      "id": "8",
+      "subject_header": "header8",
+      "email": "muhammad@gmail.com",
+      "address": "address",
+      "header": "ticket8",
+      "description": "A collection lets you group related requests and easily set common authorization, tests, scripts, and variables for all requests in it",
+      "published_at": "2023-11-13",
+      "category": "LNG Plant",
+      "status": "resolving"
+    },
+    {
+      "id": "11",
+      "subject_header": "header8",
+      "email": "n@gmail.com",
+      "address": "address",
+      "header": "ticket8",
+      "description": "A collection lets you group related requests and easily set common authorization, tests, scripts, and variables for all requests in it",
+      "published_at": "2023-11-13",
+      "category": "LNG Plant",
+      "status": "pending"
+    },
+    {
+      "subject_header": "header8",
+      "email": "n@gmail.com",
+      "address": "address",
+      "header": "ticket8",
+      "description": "A collection lets you group related requests and easily set common authorization, tests, scripts, and variables for all requests in it",
+      "published_at": "2023-11-13",
+      "category": "LNG Plant",
+      "status": "pending",
+      "id": "5KvNxe5"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "caleepha",
+      "email": "caleepha@gmail.com"
+    }
+  ]
+}
