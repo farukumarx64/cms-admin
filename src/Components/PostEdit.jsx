@@ -4,17 +4,47 @@ import {
   TextInput,
   DateInput,
   SelectInput,
+  useDataProvider,
 } from "react-admin";
 
+import { RichTextInput } from "ra-input-rich-text";
+import { useState } from "react";
+
 const PostEdit = (props) => {
+  const [comment, setComment] = useState("");
+  const dataProvider = useDataProvider(); // Access the data provider
+
+  const handleCommentChange = (value) => {
+    console.log("value: ", value);
+    setComment(value);
+  };
+
+  const sanitizeHTML = (htmlString) => {
+    const doc = new DOMParser().parseFromString(htmlString, "text/html");
+    return doc.body.textContent || "";
+  };
+
+  const handleSubmit = async (values) => {
+    console.log("values: ", values, props);
+    let { comment, ...otherValues } = values;
+
+    // Sanitize HTML tags from the comment content
+    comment = sanitizeHTML(comment);
+    // If props.id exists, it means we are editing an existing record
+    await dataProvider.update("complainData", {
+      data: { comment, ...otherValues },
+    });
+  };
   return (
     <Edit title="Edit Post" {...props}>
-      <SimpleForm>
+      <SimpleForm onSubmit={handleSubmit}>
         <TextInput disabled source="id" />
         <TextInput disabled source="name" />
         <TextInput disabled source="header" />
         <TextInput disabled source="email" />
         <TextInput disabled source="address" />
+        <TextInput disabled multiline source="description" />
+        <DateInput label="Published" source="created_at" disabled />
         <SelectInput
           source="category"
           choices={[
@@ -34,7 +64,6 @@ const PostEdit = (props) => {
             { id: "Aviation Fuel Facility", name: "Aviation Fuel Facility" },
           ]}
         />
-        <TextInput disabled multiline source="description" />
         <SelectInput
           source="status"
           choices={[
@@ -44,7 +73,11 @@ const PostEdit = (props) => {
             { id: "resolved", name: "resolved" },
           ]}
         />
-        <DateInput label="Published" source="created_at" />
+        <RichTextInput
+          source="comment"
+          input={{ onChange: handleCommentChange, value: comment }}
+          onBlur={() => {}}
+        />
       </SimpleForm>
     </Edit>
   );
